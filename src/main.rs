@@ -26,10 +26,10 @@ fn read_u64() -> Vec<u64> {
     let mut numbers = Vec::new();
 
     for arg in std::env::args().skip(1) {
-        numbers.push(u64::from_str(&arg)
+        numbers.push(u64::from_str(&arg) // return Result()
             .expect("error parsing argument")); 
-        // if panics, error msg begins with "error parsing argument"
-        // if not, return contained value
+        // if Err(e), error msg begins with "error parsing argument" + e
+        // if Ok(v), return v
     }
 
     // one-liner

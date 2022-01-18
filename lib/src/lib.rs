@@ -18,8 +18,8 @@ pub mod math {
 
     pub fn gcd(numbers: &Vec<u64>) -> u64 {
         let mut d = numbers[0];
-        for m in &numbers[1..] {
-            d = xy_gcd(d, *m);
+        for m in &numbers[1..] { // & borrow a reference to vector's elements
+            d = xy_gcd(d, *m); // * deref and return value 
         }
         d
     }
